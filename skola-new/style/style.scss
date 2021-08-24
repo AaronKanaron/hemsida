@@ -105,7 +105,8 @@ article{
 	h3{
 		text-align: left;
 		color: var(--text);
-		font-size: 2rem;
+        font-weight: 100;
+		font-size: 1.8rem;
 		margin: 0rem 0 1.5rem;
 	}
     p{
@@ -136,6 +137,10 @@ article{
 
             &.right{
                 float: right;
+            }
+            &.center{
+                margin-top: 10vmax;
+                width: 50%;
             }
             img{
                 border: 2px solid var(--text-primary);
