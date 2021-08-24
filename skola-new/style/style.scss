@@ -1,0 +1,324 @@
+/*=-------------------------------------------------------------------------------=
+                                        TIPS
+
+    font-size: rem
+    width: % in combination with a max-width, ch
+    height: if yes -> use a min-height
+    padding/margin: rem or em, often uses em for padding of buttons
+    media queries: em
+
+    px only for little things like shadows, borders etc.
+
+=-------------------------------------------------------------------------------=*/
+
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap");
+
+//Batch Processed Variables
+$selectionColor: #ce6e6e ;
+$headerImageSize: 35; //vmax
+
+:root {
+    --text: #000000;
+    --background: #FFFFFF;
+
+    //Batch Processed Variables
+    --highlight-color: #2196f3 ; //Change If needed
+    font-size: 16px;
+	font-family: "Kaisei Opti", serif;
+	scroll-behavior: smooth;
+}
+
+/* =------------------------= */
+/* CHANGED DEFAULT PROPERTIES */
+/* =------------------------= */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    &::selection {
+        color: #000000;
+        background-color: $selectionColor;
+    }
+    
+    /* for firefox */
+    &::moz-selection {
+        color: #000000;
+        background-color: $selectionColor;
+    }
+}
+
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar{ display: none; }
+}
+
+dfn{text-decoration: underline;}
+
+a{color: var(--text-primary);}
+
+br{display:block; margin: 8px 0 ;}
+
+b{
+	font-weight: 900;
+}
+/* =------------------------= */
+/* Article */
+/* =------------------------= */
+
+
+
+.Hero{
+    margin-bottom: 3vmax;
+    width: 100vw;
+
+	height: #{$headerImageSize + 2}vmax;
+
+	background-repeat: no-repeat;
+	background-size: 100vw auto;
+	z-index: -2;
+	object-fit: none;
+	object-position: center;
+}
+
+article{
+
+    h1{
+		text-align: left;
+		color: var(--text);
+		font-size: 3.5rem;
+		margin-bottom: 3rem;
+    }
+
+	h2{
+		text-align: left;
+		color: var(--text);
+		font-size: 2.5rem;
+		margin: 3rem 0 1.5rem;
+	}
+
+	h3{
+		text-align: left;
+		color: var(--text);
+		font-size: 2rem;
+		margin: 0rem 0 1.5rem;
+	}
+    p{
+		
+        color: var(--text);
+        text-align: left;
+        font-size: clamp(1rem, 1.2rem, 15rem);
+	}
+
+	&.main{
+        
+        width: calc(60vw + 5vh);
+
+		section:first-of-type p:first-of-type{
+            font-size: clamp(1.3rem, calc(.8vw + 1rem), 15rem);
+			margin-bottom: 1.2em;
+			color: rgb(10, 10, 10);
+        }
+
+		.textImage{
+            float: left;
+            width: 15%;
+            min-width: 15em;
+            max-width: 20vmax;
+            margin: 1.2em;
+            margin-bottom: .5em;
+            margin-top: .5em;
+
+            &.right{
+                float: right;
+            }
+            img{
+                border: 2px solid var(--text-primary);
+                width: 15%;
+                min-width: 15em;
+                max-width: 20vmax;
+                height: 15%;
+            }
+            .caption{
+                color: var(--paragraph-text);
+                display: block;
+                font-weight: 400;
+            }
+        }
+
+		@media only screen and (max-width: 650px) {
+            width: calc(70vw + 5vh);
+            .textImage{
+                float: none !important;
+                width: 50%;
+                min-width: 15em;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+	}
+}
+
+
+/*CHANGED DEFAULT*/
+
+
+/* UNIVERSAL CLASSES */
+
+.center{
+	position: absolute;
+	text-align: center;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+
+
+
+
+/* =------------------------= */
+/* Header + Header components */
+/* =------------------------= */
+
+header{
+	font-family: "Open Sans";
+    $h: &;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 40px 20%;
+    background-color: var(--background);
+    transition: transform 200ms ease-out, background-image 500ms ease-out, filter 200ms ease-out;
+
+    .logo {
+        margin-right: auto;
+        font-weight: 500;
+        color: --text-primary;
+        text-transform: uppercase;
+        font-size: clamp(1.5rem, 1vw, 3rem);
+        text-decoration: none;
+        transition: all, 0.2s ease;
+        &:hover{
+            color: var(--highlight-color);
+            transform: scale(1.1);
+        }
+    }
+
+    .nav-links{
+        list-style: none;
+        display: flex;
+        
+        a{
+            font-weight: 500;
+            color: --text-primary;
+            text-decoration: none;
+        }
+
+        li{
+            padding: 0px 20px;
+            a{
+                font-size: clamp(1rem, .7vw, 3rem);
+                transition: all 0.3 ease 0s;
+                &.active{
+                    color: var(--highlight-color);//lighten($color: var(--highlight-color), $amount: 10%);
+                }
+                &:hover{
+                    color: --highlight-color;                    
+                }
+            }
+        }
+    }
+
+    .cta{
+        font-weight: 500;
+        color: --background;
+        text-decoration: none;
+        margin-left: 20px;
+        padding: 9px 25px;
+        font-size: clamp(1.1rem, .7vw, 3rem);
+        background-color: var(--highlight-color); //lighten($color: var(--highlight-color), $amount: 10%);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        &:hover{
+            background-color: --highlight-color;
+        }
+    }
+
+    /* Display Correct on PC */
+
+    .menu { display: none; }
+
+    @media only screen and (max-width: 800px) {
+		padding: 40px 8%;
+        .nav-links, .cta{ display: none; }
+        .menu{ display: initial; }
+    }
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    background-color: var(--background);
+    overflow-x: hidden;
+    transition: all 0.5s ease 0s;
+
+    &--show{ width: 100%; }
+
+    &-content{
+        white-space: nowrap;
+        overflow: hidden;
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .active{
+            color: var(--highlight-color); //lighten($color: var(--highlight-color), $amount: 10%);
+        }
+    }
+
+    a{
+        padding: 15px;
+        font-weight: 500;
+        color: --text-primary;
+        text-decoration: none;
+        font-size: 36px;
+        display: block;
+        transition: all 0.3 ease 0s;
+        &:hover,&:focus{ color: --highlight-color; }
+    }
+
+    .close{
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+        color: --text-primary;
+        cursor: pointer;
+    }
+    @media screen and (max-height: 450px) {
+        a{ font-size: 20px; }
+        
+        .close{
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
+        }
+    }
+}
