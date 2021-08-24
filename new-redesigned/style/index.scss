@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
+
+$typewriterSpeed: 1.2s;
+$fontfamily: 'Montserrat', serif;
+
+main{ padding-top: 0; }
+
+h1{
+    font-size: clamp(.5rem, calc(3vw + 2rem), 15rem);
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+    width: max-content;
+    font-variant: normal;
+    margin-top: 3em;
+    margin-bottom: .2em;
+    text-decoration: var(--text-primary) underline;
+    text-decoration-thickness: .15em;
+    // background: linear-gradient(to right, var(--text-primary) 7ch, #e76f51 8ch);
+    // background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    &::before,&::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &::before{
+        background: var(--background);
+        animation: 
+            typewriter $typewriterSpeed steps(11) forwards;
+    }
+    &::after{
+        width: 0.125em;
+        height: 1.125em;
+        transform: translateY(.15em);
+        background: var(--text-primary);
+        animation: 
+            typewriter $typewriterSpeed steps(11) forwards, 
+            0.7s blink $typewriterSpeed step-start infinite,
+            1 typewriterLine 1s forwards;
+    }
+}
+h2{
+    margin-bottom: 30em;
+}
+
+.Images{
+    .Block{
+        width: fit-content;
+        height: fit-content;
+        max-width: 90%;
+        border: .4vmax var(--border-color) solid;
+    
+        margin: 1vmax;
+        background: var(--border-color);
+        border-radius: 0.75vmax;
+        p{
+            width: 80%;
+
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 100;
+            font-size: 1.2vmax;
+            margin-bottom: .5vmax;
+            margin-top: .5vmax;
+    
+            color: var(--text-primary);
+        }
+        .ImageHolder{
+            width: fit-content;
+            height: fit-content;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            padding: 0%;
+            margin: 0%;
+            img{
+                transition: filter 0.2s;
+                width: auto;
+                height: 25vmax;
+                transition: filter 0.1s;
+                border-radius: 0.5vmax;
+            
+                padding: 0vmax 0.07vmax;
+                display: inline-block;
+                vertical-align: top;
+            }
+            &:hover,&:active img{
+                filter: brightness(60%);
+            }
+            .ImgText{
+                transition: opacity 0.5s, bottom 0.4s, color 0.5s, letter-spacing 1s;
+            
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, 50%);
+                color: transparent;
+                bottom: 80%;
+                width: 100%;
+            
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 600;
+                font-size: clamp(1.5rem, calc(1vw + 1rem), 15rem);
+                letter-spacing: -3px;
+                opacity: 0;
+                z-index: 20;
+            }
+            &:hover .ImgText{
+                
+                opacity: 1;
+                bottom: 50%;
+                color: white;
+                letter-spacing: 3px;
+            }
+        }
+    }
+
+    &>div{
+        margin: 1vmax;
+        display: inline-block;
+    }
+    
+}
+
+
+/*=--------=*/
+/*ANIMATIONS*/
+/*=--------=*/
+
+@keyframes typewriter{
+    to { left:100%}
+}
+
+@keyframes typewriterLine{
+    90%{ background: var(--text-primary); }
+    100%{ background: var(--highlight-color) }
+}
+
+@keyframes blink{
+    50%{ opacity: 0; }
+}
+
+@keyframes rainbow{
+    100%, 0%{ color: #ff0000; }
+    8%{ color: #ff7f00; }
+    16%{ color: #ffff00; }
+    25%{ color: #7fff00; }
+    33%{ color: #00ff00; }
+    41%{ color: #00ff7f; }
+    50%{ color: #00ffff; }
+    58%{ color: #007fff; }
+    66%{ color: #0000ff; }
+    75%{ color: #7f00ff; }
+    83%{ color: #ff00ff; }
+    91%{ color: #ff007f; }
+}
