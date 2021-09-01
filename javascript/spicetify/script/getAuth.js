@@ -1,0 +1,3 @@
+let auth = {
+	"Authorization": "Bearer BQBg1P3mJAW9F5vABVd25KPU0onPcNO9HnUO_UBj_IHIucd0MYCZG0s3iuBfiOGbRDLUfwygatg68eYywn_L7QoRBLcB8z2VRJq-sRLt1zSGOn0E7hGyl-64ZxLYC520lzXJQQxE1x50BP5XSX0wZEchfYMYpifJzV0"
+}
