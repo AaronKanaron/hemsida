@@ -18,15 +18,20 @@ async function loadPlaylist(playlistID){
 			Main.innerHTML += "<h1>" + data.name + "</h1>"
 
 			data.tracks.items.map((obj, oi) => {
+				object_index = oi + 1
 
-				Main.innerHTML += "<p>"+ 
-					obj.track.name + 
-					" - track number: "
-					+ oi + "</p>"
+				Main.innerHTML += "<div class='trackBox'>" + 
 
-				Main.innerHTML += "<img class='icon' src='" + 
-					obj.track.album.images[2].url +
-					"'>"
+					"<p class='track_oi'>" + object_index + "</p>" +
+
+					"<img class='icon' src='" + obj.track.album.images[2].url +"'>" + 
+
+					"<p class='track_name'>" + obj.track.name + "</p>" + 
+
+					"<p class='album_creator'>" + obj.track.album.artists[0].name + "</p>" + 
+
+					"</div>"
+
 			})
 		});
 }
