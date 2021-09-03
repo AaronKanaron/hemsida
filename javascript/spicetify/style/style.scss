@@ -4,34 +4,75 @@
 	--image: "bruh";
 	--text-clr: white;
 	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+html{
+	background-color: #24272f;
 }
 
 body{
 	margin: 0;
 	padding: 0;
 	background-image: linear-gradient(135deg,#24272f, #1e1322);
+
 }
 
 main{
 	margin-left: 12rem;
 	padding: 1rem;
+	padding-top: 2rem;
+	padding-bottom: 12em;
+
 }
 
 h1{
 	font-size: 6em;
 	color: white;
-	font-family: 'Montserrat', sans-serif;
+	
 	display: inline-block;
 	padding: .3em;
+	text-shadow: white 0px 0px 10px;
 	
 }
 
+p{
+	
+	&.track_oi{
+		margin-left: 1em;
+		margin-right: 1em;
+		color: #a1a1a1;
+	}
+
+	&.track_name{
+		text-shadow: white 0px 0px 3px;
+
+		margin-left: 2em;
+		color:white;
+	}
+
+	&.album_creator{
+		color: #a1a1a1;
+	}
+}
+
+.trackBox{
+	display: flex;
+	justify-content: left;
+	flex-direction: row;
+	height: 3em;
+	margin: .2em 0;
+	.icon{
+	}
+}
 
 .cover{
 	position: relative;
 	display: inline-block;
 	object-fit: contain;
 	background-size: 232px;
+	margin-top: 1em;
+	margin-left: 3em;
 	width: 232px;
 	height: 232px;
 	border-radius: 1.8em;
@@ -39,7 +80,7 @@ h1{
 }
 .cover::after{
 	content: '';
-	background: var(--image);
+	background: red;
 	filter: blur(30px);
 
 	position: absolute;
